@@ -55,6 +55,8 @@ function App() {
 
     setGithubUsername('');
     setTechs('');
+
+    setDevs([...devs, response.data]);
   }
 
   return (
@@ -111,17 +113,19 @@ function App() {
       </aside>
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
-              <div className="user-info">
-                <strong>Dry F.</strong>
-                <span>Fullstack developer PHP, Javascript and Flutter.</span>                
-              </div>
-            </header>
-            <p>Senior Software Developer at DOC88</p>
-            <a href="https://github.com/Dreyfi">See profile on github</a>
-          </li>
+          {devs.map(dev => (
+            <li key={dev._id} className="dev-item">
+              <header>
+                <img src={dev.avatar_url} alt={dev.name}/>
+                <div className="user-info">
+                  <strong>{dev.name ?? dev.login}</strong>
+                  <span>{dev.techs.join(', ')}</span>                
+                </div>
+              </header>
+              <p>{dev.bio}</p>
+              <a href={`https://github.com/${dev.github_username}`}>See profile on github</a>
+            </li>
+          ))}
         </ul>
       </main>
     </div>
