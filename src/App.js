@@ -3,6 +3,7 @@ import React from 'react';
 import './global.css';
 import './App.css';
 import './Sidebar.css';
+import './Main.css';
 
 // Component
 // Property
@@ -35,11 +36,56 @@ function App() {
             </div>
           </div>
 
-          <button type="submit">Salvar</button>          
+          <button type="submit">Save</button>          
         </form>
       </aside>
       <main>
-        
+        <ul>
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
+              <div className="user-info">
+                <strong>Dry F.</strong>
+                <span>Fullstack developer PHP, Javascript and Flutter.</span>                
+              </div>
+            </header>
+            <p>Senior Software Developer at DOC88</p>
+            <a href="https://github.com/Dreyfi">See profile on github</a>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
+              <div className="user-info">
+                <strong>Dry F.</strong>
+                <span>Fullstack developer PHP, Javascript and Flutter.</span>                
+              </div>
+            </header>
+            <p>Senior Software Developer at DOC88</p>
+            <a href="https://github.com/Dreyfi">See profile on github</a>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
+              <div className="user-info">
+                <strong>Dry F.</strong>
+                <span>Fullstack developer PHP, Javascript and Flutter.</span>                
+              </div>
+            </header>
+            <p>Senior Software Developer at DOC88</p>
+            <a href="https://github.com/Dreyfi">See profile on github</a>
+          </li>
+          <li className="dev-item">
+            <header>
+              <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
+              <div className="user-info">
+                <strong>Dry F.</strong>
+                <span>Fullstack developer PHP, Javascript and Flutter.</span>                
+              </div>
+            </header>
+            <p>Senior Software Developer at DOC88</p>
+            <a href="https://github.com/Dreyfi">See profile on github</a>
+          </li>
+        </ul>
       </main>
     </div>
   );
