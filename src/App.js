@@ -1,4 +1,5 @@
 import React, { useState,useEffect } from 'react';
+import api from './services/api';
 
 import './global.css';
 import './App.css';
@@ -11,6 +12,7 @@ import './Main.css';
 
 function App() {
 
+  const [devs, setDevs] = useState([]);
   const [github_username, setGithubUsername] = useState('');
   const [techs, setTechs] = useState('');
   const [latitude, setLatitude] = useState('');
@@ -33,9 +35,26 @@ function App() {
     )
   }, []);
 
+  useEffect(() => {
+    async function loadDevs() {
+      const response = await api.get('/devs');
+
+      setDevs(response.data);
+    }
+    loadDevs();
+  }, []);
+
   async function handleAddDev(e) {
     e.preventDefault();
-    
+    const response = await api.post('/devs', {
+      github_username,
+      techs,
+      latitude,
+      longitude
+    })
+
+    setGithubUsername('');
+    setTechs('');
   }
 
   return (
@@ -92,39 +111,6 @@ function App() {
       </aside>
       <main>
         <ul>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
-              <div className="user-info">
-                <strong>Dry F.</strong>
-                <span>Fullstack developer PHP, Javascript and Flutter.</span>                
-              </div>
-            </header>
-            <p>Senior Software Developer at DOC88</p>
-            <a href="https://github.com/Dreyfi">See profile on github</a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
-              <div className="user-info">
-                <strong>Dry F.</strong>
-                <span>Fullstack developer PHP, Javascript and Flutter.</span>                
-              </div>
-            </header>
-            <p>Senior Software Developer at DOC88</p>
-            <a href="https://github.com/Dreyfi">See profile on github</a>
-          </li>
-          <li className="dev-item">
-            <header>
-              <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
-              <div className="user-info">
-                <strong>Dry F.</strong>
-                <span>Fullstack developer PHP, Javascript and Flutter.</span>                
-              </div>
-            </header>
-            <p>Senior Software Developer at DOC88</p>
-            <a href="https://github.com/Dreyfi">See profile on github</a>
-          </li>
           <li className="dev-item">
             <header>
               <img src="https://avatars2.githubusercontent.com/u/3505903?s=460&v=4" alt="Dry F."/>
